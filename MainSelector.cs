@@ -17,6 +17,7 @@ namespace VEEAM_Test_Task
         {
 
             string name = ClassCreate.nameArchive;
+            string nameCopy = ClassCreate.justName;
             Console.WriteLine("What did you want to do now?");
             Console.WriteLine("1-Create Original and copy at the same time");
             Console.WriteLine("2-Create Original");
@@ -29,7 +30,7 @@ namespace VEEAM_Test_Task
             {
                 case "1":
                     ClassCreate.createOriginal();
-                    ClassCreate.createCopy();
+                    ClassCreate.createCopy(nameCopy);
                     break;
 
                 case "2":
@@ -37,7 +38,7 @@ namespace VEEAM_Test_Task
                     break;
 
                 case "3":
-                    ClassCreate.createCopy();
+                    ClassCreate.createCopy(nameCopy);
                     break;
 
                 case "4":

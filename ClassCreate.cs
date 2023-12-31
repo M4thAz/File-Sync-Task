@@ -6,6 +6,7 @@ namespace VEEAM_Test_Task.CreateArchive
     public class ClassCreate
     {
         public static string nameArchive;
+        public static string justName;
 
         public static void createOriginal()
         {
@@ -20,7 +21,9 @@ namespace VEEAM_Test_Task.CreateArchive
             Console.WriteLine("Insert the name of the archive!");
             string name = Console.ReadLine();
 
+            //global variables who receive values and send to another functions
             nameArchive = $"{pathing}{name}";
+            justName = $"{name} Copy";
 
             DirectoryInfo directoryInfo = new DirectoryInfo(pathing);
 
@@ -31,23 +34,23 @@ namespace VEEAM_Test_Task.CreateArchive
 
             Console.WriteLine($"Your Original archive '{directoryInfo.FullName}' already created!");
             Console.WriteLine(pathing);
-            MainSelector.processChoices();
         }
 
-        public static void createCopy()
+        public static void createCopy(string originalName = "")
         {
             //create the copy of original archive
             Console.WriteLine("Now, where do you want to create te reply of the archive?");
             string replyArchive = Console.ReadLine();
             DirectoryInfo copyDirectory = new DirectoryInfo(replyArchive);
 
-
             if (copyDirectory.Exists)
             {
-                copyDirectory.CreateSubdirectory("VEAMCOPY");
+                copyDirectory.CreateSubdirectory($"{justName}");
             }
             Console.WriteLine($"your copy has been created!"); Console.ReadKey();
         }
+
+
     }
 }
 
