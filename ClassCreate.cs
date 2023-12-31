@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VEEAM_Test_Task.CreateArchive
 {
     public class ClassCreate
     {
+        public static string nameArchive;
 
         public static void createOriginal()
         {
@@ -16,17 +13,25 @@ namespace VEEAM_Test_Task.CreateArchive
             Console.WriteLine("Tell what path you want do create your archive please!");
             string pathing = Console.ReadLine();
 
-            Console.WriteLine("Insert the name of the archive!");
-            string nameArchive = Console.ReadLine();
+            //function recive the pathing value to send to delete method on delete
+            DeleteControl.archivePathing(pathing);
 
+
+            Console.WriteLine("Insert the name of the archive!");
+            string name = Console.ReadLine();
+
+            nameArchive = $"{pathing}{name}";
 
             DirectoryInfo directoryInfo = new DirectoryInfo(pathing);
+
             if (directoryInfo.Exists)
             {
-                directoryInfo.CreateSubdirectory(nameArchive);
+                directoryInfo.CreateSubdirectory(name);
             }
 
             Console.WriteLine($"Your Original archive '{directoryInfo.FullName}' already created!");
+            Console.WriteLine(pathing);
+            MainSelector.processChoices();
         }
 
         public static void createCopy()
@@ -35,6 +40,7 @@ namespace VEEAM_Test_Task.CreateArchive
             Console.WriteLine("Now, where do you want to create te reply of the archive?");
             string replyArchive = Console.ReadLine();
             DirectoryInfo copyDirectory = new DirectoryInfo(replyArchive);
+
 
             if (copyDirectory.Exists)
             {

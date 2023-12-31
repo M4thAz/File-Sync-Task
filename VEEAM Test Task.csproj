@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassCreate.cs" />
-    <Compile Include="PathConfig\pathing.cs" />
+    <Compile Include="DeleteControl.cs" />
     <Compile Include="MainSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
