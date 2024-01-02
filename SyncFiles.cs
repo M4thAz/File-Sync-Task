@@ -18,6 +18,7 @@ namespace VEEAM_Test_Task
                     string teste = Path.Combine(destinyPath, archDestiny);
                     File.Copy(arqOrigim, teste);
                 }
+                MainSelector.processChoices();
             }
             catch (Exception ex)
             {

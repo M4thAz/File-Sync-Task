@@ -7,7 +7,7 @@ namespace VEEAM_Test_Task.CreateArchive
     {
         public static string pathNameAndArchive;
         public static string justName;
-
+        public static string checkPathingFileCopy;
 
 
         public static void createOriginal()
@@ -43,6 +43,9 @@ namespace VEEAM_Test_Task.CreateArchive
             Console.WriteLine("Now, where do you want to create te reply of the archive?");
             string replyArchive = Console.ReadLine();
             DirectoryInfo copyDirectory = new DirectoryInfo(replyArchive);
+            checkPathingFileCopy = copyDirectory.FullName;
+            checkPathingFileCopy = Path.Combine(checkPathingFileCopy, justName);
+
 
             if (copyDirectory.Exists)
             {

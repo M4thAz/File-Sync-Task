@@ -18,7 +18,8 @@ namespace VEEAM_Test_Task
 
             string name = ClassCreate.pathNameAndArchive;
             string nameCopy = ClassCreate.justName;
-            string trycontat = $"{name}{nameCopy}";
+            string pathingFile = ClassCreate.checkPathingFileCopy;
+
             Console.WriteLine("What did you want to do now?");
             Console.WriteLine("1-Create Original and copy at the same time");
             Console.WriteLine("2-Create Original");
@@ -43,11 +44,11 @@ namespace VEEAM_Test_Task
                     break;
 
                 case "4":
-                    DeleteControl.deleteArchive(name);
+                    DeleteControl.deleteArchive(name, pathingFile);
                     break;
 
                 case "5":
-                    SyncFiles.FileCopy(name, trycontat);
+                    SyncFiles.FileCopy(name, pathingFile);
                     break;
 
                 case "6":
