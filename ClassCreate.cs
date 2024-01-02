@@ -5,8 +5,10 @@ namespace VEEAM_Test_Task.CreateArchive
 {
     public class ClassCreate
     {
-        public static string nameArchive;
+        public static string pathNameAndArchive;
         public static string justName;
+
+
 
         public static void createOriginal()
         {
@@ -18,11 +20,11 @@ namespace VEEAM_Test_Task.CreateArchive
             DeleteControl.archivePathing(pathing);
 
 
-            Console.WriteLine("Insert the name of the archive!");
+            Console.WriteLine("Insert the archive name!");
             string name = Console.ReadLine();
 
             //global variables who receive values and send to another functions
-            nameArchive = $"{pathing}{name}";
+            pathNameAndArchive = $"{pathing}{name}";
             justName = $"{name} Copy";
 
             DirectoryInfo directoryInfo = new DirectoryInfo(pathing);
@@ -33,7 +35,6 @@ namespace VEEAM_Test_Task.CreateArchive
             }
 
             Console.WriteLine($"Your Original archive '{directoryInfo.FullName}' already created!");
-            Console.WriteLine(pathing);
         }
 
         public static void createCopy(string originalName = "")
@@ -47,6 +48,7 @@ namespace VEEAM_Test_Task.CreateArchive
             {
                 copyDirectory.CreateSubdirectory($"{justName}");
             }
+            MainSelector.processChoices();
             Console.WriteLine($"your copy has been created!"); Console.ReadKey();
         }
 
