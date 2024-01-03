@@ -26,6 +26,8 @@ namespace VEEAM_Test_Task
             Console.WriteLine("3-Create Copy");
             Console.WriteLine("4-Delete Options!");
             Console.WriteLine("5-Copy folder");
+            Console.WriteLine("6-LogsFile");
+            Console.WriteLine("7-random");
             string choices = Console.ReadLine();
 
             switch (choices)
@@ -50,8 +52,11 @@ namespace VEEAM_Test_Task
                 case "5":
                     SyncFiles.FileCopy(name, pathingFile);
                     break;
-
                 case "6":
+                    Logs.TextFileCreator();
+                    break;
+
+                case "7":
                     Environment.Exit(0);
                     break;
 
