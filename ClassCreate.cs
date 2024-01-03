@@ -34,7 +34,8 @@ namespace VEEAM_Test_Task.CreateArchive
                 directoryInfo.CreateSubdirectory(name);
             }
 
-            Console.WriteLine($"Your Original archive '{directoryInfo.FullName}' already created!");
+            string helper = $"Your Original archive '{directoryInfo.FullName}' already created!";
+            //Logs.feedbackInfos(helper);
         }
 
         public static void createCopy(string originalName = "")

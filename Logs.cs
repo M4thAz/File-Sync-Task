@@ -5,7 +5,8 @@ namespace VEEAM_Test_Task
 {
     internal class Logs
     {
-
+        string pathingReceptor = DeleteControl.archivePathing("adsa");
+        public static string combined = "";
         public static void TextFileCreator()
         {
             Console.WriteLine("Insert the pathing of your file!");
@@ -13,22 +14,26 @@ namespace VEEAM_Test_Task
             Console.WriteLine("Insert the name");
             string nameTxtFile = $"{Console.ReadLine()}.txt";
 
-            string combinedPathing = Path.Combine(pathingTxtFile, nameTxtFile);
+            combined = Path.Combine(pathingTxtFile, nameTxtFile);
 
-            TextWriter nameFile = new StreamWriter(combinedPathing, false);
-            feedbackInfos(nameFile);
-            Console.WriteLine(feedbackInfos(nameFile));
-            Console.ReadKey();
+            using (StreamWriter nameFile = new StreamWriter(combined, true))
+            {
+
+            }
+            feedbackInfos();
         }
 
-        public static string feedbackInfos(string pathing = "", string text = "")
+        public static string feedbackInfos(string text = "")
         {
-            string sendTextInfo = text;
-            string sendPathingInfo = pathing;
-            StreamReader infoReceiver = new StreamReader(sendPathingInfo);
+            string sendTextInfo = combined;
 
+            using (StreamWriter infosReceived = new StreamWriter(combined))
+            {
+                infosReceived.WriteLine($"AH MANO ESCREVE ALGO POR FAVOR");
+            }
+            Console.ReadKey();
 
-
+            return null;
         }
     }
 }
