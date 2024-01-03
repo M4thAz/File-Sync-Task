@@ -11,17 +11,24 @@ namespace VEEAM_Test_Task
             Console.WriteLine("Insert the pathing of your file!");
             string pathingTxtFile = Console.ReadLine();
             Console.WriteLine("Insert the name");
-            string nameTxtFile = Console.ReadLine();
+            string nameTxtFile = $"{Console.ReadLine()}.txt";
 
-            string helper = $"{nameTxtFile}.txt";
-
-            string combinedPathing = Path.Combine(pathingTxtFile, helper);
+            string combinedPathing = Path.Combine(pathingTxtFile, nameTxtFile);
 
             TextWriter nameFile = new StreamWriter(combinedPathing, false);
-            Console.WriteLine(nameFile);
+            feedbackInfos(nameFile);
+            Console.WriteLine(feedbackInfos(nameFile));
             Console.ReadKey();
         }
 
+        public static string feedbackInfos(string pathing = "", string text = "")
+        {
+            string sendTextInfo = text;
+            string sendPathingInfo = pathing;
+            StreamReader infoReceiver = new StreamReader(sendPathingInfo);
 
+
+
+        }
     }
 }
