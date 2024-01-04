@@ -1,12 +1,16 @@
 ﻿using System;
 using System.IO;
+using VEEAM_Test_Task.CreateArchive;
 
 namespace VEEAM_Test_Task
 {
     internal class Logs
     {
         string pathingReceptor = DeleteControl.archivePathing("adsa");
+        string directoryReceptor = ClassCreate.checkDirectory;
         public static string combined = "";
+        DirectoryInfo directory = new DirectoryInfo(directoryReceptor);
+
         public static void TextFileCreator()
         {
             Console.WriteLine("Insert the pathing of your file!");
@@ -26,13 +30,15 @@ namespace VEEAM_Test_Task
         public static string feedbackInfos(string text = "")
         {
             string sendTextInfo = combined;
-
-            using (StreamWriter infosReceived = new StreamWriter(combined))
+            if (Directory.Exists(directoryReceptor))
             {
-                infosReceived.WriteLine($"AH MANO ESCREVE ALGO POR FAVOR");
+                using (StreamWriter infosReceived = new StreamWriter(combined))
+                {
+                    infosReceived.WriteLine($"AH MANO ESCREVE ALGO POR FAVOR");
+                }
             }
-            Console.ReadKey();
-
+                Console.ReadKey();
+            
             return null;
         }
     }

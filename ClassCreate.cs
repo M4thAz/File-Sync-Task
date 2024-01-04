@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security.AccessControl;
 
 namespace VEEAM_Test_Task.CreateArchive
 {
@@ -8,7 +9,7 @@ namespace VEEAM_Test_Task.CreateArchive
         public static string pathNameAndArchive;
         public static string justName;
         public static string checkPathingFileCopy;
-
+        public static string checkDirectory;
 
         public static void createOriginal()
         {
@@ -28,6 +29,8 @@ namespace VEEAM_Test_Task.CreateArchive
             justName = $"{name} Copy";
 
             DirectoryInfo directoryInfo = new DirectoryInfo(pathing);
+            checkDirectory = directoryInfo.FullName;
+            checkDirectory = Path.Combine(checkDirectory, name);
 
             if (directoryInfo.Exists)
             {
