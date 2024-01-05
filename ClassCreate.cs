@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace VEEAM_Test_Task.CreateArchive
 {
@@ -19,8 +20,7 @@ namespace VEEAM_Test_Task.CreateArchive
 
             //function recive the pathing value to send to delete method on delete
             DeleteControl.archivePathing(pathing);
-
-
+            
             Console.WriteLine("Insert the archive name!");
             string name = Console.ReadLine();
 
