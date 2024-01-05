@@ -1,44 +1,29 @@
 ﻿using System;
 using System.IO;
-using VEEAM_Test_Task.CreateArchive;
 
 namespace VEEAM_Test_Task
 {
     internal class Logs
     {
-        string pathingReceptor = DeleteControl.archivePathing("adsa");
-        string directoryReceptor = ClassCreate.checkDirectory;
-        public static string combined = "";
-        DirectoryInfo directory = new DirectoryInfo(directoryReceptor);
-
+        public static string combined;
         public static void TextFileCreator()
         {
-            Console.WriteLine("Insert the pathing of your file!");
+            Console.WriteLine("Lets create your TXT file, please chose a pathing");
             string pathingTxtFile = Console.ReadLine();
-            Console.WriteLine("Insert the name");
+            Console.WriteLine("Insert the file name!");
             string nameTxtFile = $"{Console.ReadLine()}.txt";
 
             combined = Path.Combine(pathingTxtFile, nameTxtFile);
 
-            using (StreamWriter nameFile = new StreamWriter(combined, true))
-            {
-
-            }
-            feedbackInfos();
+            using (StreamWriter nameFile = new StreamWriter(combined, true)) { }
         }
 
         public static string feedbackInfos(string text = "")
         {
-            string sendTextInfo = combined;
-            if (Directory.Exists(directoryReceptor))
+            using (StreamWriter infosReceived = File.AppendText(combined))
             {
-                using (StreamWriter infosReceived = new StreamWriter(combined))
-                {
-                    infosReceived.WriteLine($"AH MANO ESCREVE ALGO POR FAVOR");
-                }
+                infosReceived.WriteLine($"[{DateTime.Now.ToString("dddd, dd MMMM yyyy - hh:mmtt")}] - {text}");
             }
-                Console.ReadKey();
-            
             return null;
         }
     }

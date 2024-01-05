@@ -8,6 +8,7 @@ namespace VEEAM_Test_Task
 
         static void Main(string[] args)
         {
+            Logs.TextFileCreator();
             processChoices();
         }
 
@@ -15,19 +16,16 @@ namespace VEEAM_Test_Task
 
         public static void processChoices()
         {
-
             string name = ClassCreate.pathNameAndArchive;
             string nameCopy = ClassCreate.justName;
             string pathingFile = ClassCreate.checkPathingFileCopy;
 
-            Console.WriteLine("What did you want to do now?");
+            Console.WriteLine("Select action!");
             Console.WriteLine("1-Create Original and copy at the same time");
             Console.WriteLine("2-Create Original");
-            Console.WriteLine("3-Create Copy");
-            Console.WriteLine("4-Delete Options!");
-            Console.WriteLine("5-Copy folder");
-            Console.WriteLine("6-LogsFile");
-            Console.WriteLine("7-random");
+            Console.WriteLine("3-Delete Options!");
+            Console.WriteLine("4-Copy folder");
+            Console.WriteLine("6-random");
             string choices = Console.ReadLine();
 
             switch (choices)
@@ -42,21 +40,17 @@ namespace VEEAM_Test_Task
                     break;
 
                 case "3":
-                    ClassCreate.createCopy(nameCopy);
-                    break;
-
-                case "4":
                     DeleteControl.deleteArchive(name, pathingFile);
                     break;
 
-                case "5":
+                case "4":
                     SyncFiles.FileCopy(name, pathingFile);
                     break;
-                case "6":
+                case "5":
                     Logs.TextFileCreator();
                     break;
 
-                case "7":
+                case "6":
                     Environment.Exit(0);
                     break;
 

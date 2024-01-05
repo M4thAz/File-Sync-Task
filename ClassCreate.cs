@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Security.AccessControl;
 
 namespace VEEAM_Test_Task.CreateArchive
 {
@@ -10,6 +9,7 @@ namespace VEEAM_Test_Task.CreateArchive
         public static string justName;
         public static string checkPathingFileCopy;
         public static string checkDirectory;
+
 
         public static void createOriginal()
         {
@@ -31,14 +31,20 @@ namespace VEEAM_Test_Task.CreateArchive
             DirectoryInfo directoryInfo = new DirectoryInfo(pathing);
             checkDirectory = directoryInfo.FullName;
             checkDirectory = Path.Combine(checkDirectory, name);
-
-            if (directoryInfo.Exists)
+            try
             {
-                directoryInfo.CreateSubdirectory(name);
+                if (directoryInfo.Exists)
+                {
+                    directoryInfo.CreateSubdirectory(name);
+                    string message = $"Your Original archive '{directoryInfo.FullName}' already created!";
+                    Console.WriteLine(message);
+                    Logs.feedbackInfos(message);
+                }
             }
-
-            string helper = $"Your Original archive '{directoryInfo.FullName}' already created!";
-            //Logs.feedbackInfos(helper);
+            catch
+            {
+                Console.WriteLine("DirectoryLog doenst exist, please create one before create any file!");
+            }
         }
 
         public static void createCopy(string originalName = "")
@@ -54,9 +60,10 @@ namespace VEEAM_Test_Task.CreateArchive
             if (copyDirectory.Exists)
             {
                 copyDirectory.CreateSubdirectory($"{justName}");
+                Console.WriteLine($"your copy has been created!\n");
+                Logs.feedbackInfos($"your copy of has been created!");
             }
             MainSelector.processChoices();
-            Console.WriteLine($"your copy has been created!"); Console.ReadKey();
         }
 
 

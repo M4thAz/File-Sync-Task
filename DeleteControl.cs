@@ -9,8 +9,8 @@ namespace VEEAM_Test_Task
         public static void deleteArchive(string originalFilePathing, string copyFilePathing = "")
         {
             Console.WriteLine("Delete archive?");
-            Console.WriteLine("1-Yes");
-            Console.WriteLine("2-Delete Content");
+            Console.WriteLine("1-Delete file and content!");
+            Console.WriteLine("2-Delete file content!");
             Console.WriteLine("3-Back to main menu");
             string deleteOptions = Console.ReadLine();
 
@@ -28,8 +28,9 @@ namespace VEEAM_Test_Task
                     {
                         Directory.Delete(archivePath, true);
                         Directory.Delete(fileCopyArchivePath, true);
+                        Logs.feedbackInfos("Files deleted!");
+                        MainSelector.processChoices();
                     }
-                    MainSelector.processChoices();
                     break;
 
                 case "2":
@@ -46,13 +47,13 @@ namespace VEEAM_Test_Task
                                 File.Delete(loopCopyFile);
                             }
                         }
-
+                        Logs.feedbackInfos("Deleted all content!");
+                        MainSelector.processChoices();
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"error try again ++ {ex}");
+                        Console.WriteLine($"error try again");
                     }
-                    MainSelector.processChoices();
                     break;
 
                 case "3":
@@ -60,7 +61,7 @@ namespace VEEAM_Test_Task
                     break;
 
                 default:
-
+                    MainSelector.processChoices();
                     break;
             }
         }
