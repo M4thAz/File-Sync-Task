@@ -8,7 +8,7 @@ namespace VEEAM_Test_Task
         public static string combined;
         public static void TextFileCreator()
         {
-            Console.WriteLine("Lets create your TXT file, please chose a pathing");
+            Console.WriteLine("Hi, Lets create your TXT file to sendo changes notifications, please chose a pathing!");
             string pathingTxtFile = Console.ReadLine();
             if (IsValidPathing(pathingTxtFile))
             {

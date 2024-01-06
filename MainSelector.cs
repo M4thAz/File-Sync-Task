@@ -21,11 +21,10 @@ namespace VEEAM_Test_Task
             string pathingFile = ClassCreate.checkPathingFileCopy;
 
             Console.WriteLine("Select action!");
-            Console.WriteLine("1-Create Original and copy at the same time");
-            Console.WriteLine("2-Create Original");
-            Console.WriteLine("3-Delete Options!");
-            Console.WriteLine("4-Copy folder");
-            Console.WriteLine("6-random");
+            Console.WriteLine("1-Create Files");
+            Console.WriteLine("2-Delete Options!");
+            Console.WriteLine("3-Copy folder");
+            Console.WriteLine("4-Close Program");
             string choices = Console.ReadLine();
 
             switch (choices)
@@ -36,21 +35,13 @@ namespace VEEAM_Test_Task
                     break;
 
                 case "2":
-                    ClassCreate.createOriginal();
-                    break;
-
-                case "3":
                     DeleteControl.deleteArchive(name, pathingFile);
+                    break;
+                case "3":
+                    SyncFiles.FileCopy(name, pathingFile);
                     break;
 
                 case "4":
-                    SyncFiles.FileCopy(name, pathingFile);
-                    break;
-                case "5":
-                    Logs.TextFileCreator();
-                    break;
-
-                case "6":
                     Environment.Exit(0);
                     break;
 
