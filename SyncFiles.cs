@@ -28,7 +28,6 @@ namespace VEEAM_Test_Task
                 }
                 Console.WriteLine("Files copied!");
                 Logs.feedbackInfos("Files copied!");
-                Timing();
                 MainSelector.processChoices();
             }
             catch (Exception ex)
