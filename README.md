@@ -1,4 +1,4 @@
-![Program](https://github.com/M4thAz/VEEAM-Test-Task/assets/108142400/93bbf989-0b40-4efb-9058-93bccedfde02)
+![image](https://github.com/M4thAz/VEEAM-Test-Task/assets/108142400/7b749ed1-7692-4554-9f45-882ef0f6d7dd)
 
 <h1>Overview</h1>
 This program has been developed as a part of the QA Junior Developer test for the esteemed company VEEAM. It serves as a practical demonstration of skills and capabilities relevant to the position.
