@@ -1,8 +1,7 @@
+#Overview
+This program has been developed as a part of the QA Junior Developer test for the esteemed company VEEAM. It serves as a practical demonstration of skills and capabilities relevant to the position.
 
-<h1>Overview</h1>
-<h2>This program has been developed as a part of the QA Junior Developer test for the esteemed company VEEAM. It serves as a practical demonstration of skills and capabilities relevant to the position.</h2>
-
-#Requirements
+##Requirements
 Visual Studio 2022
 
 #Installation Instructions
