@@ -9,11 +9,11 @@ namespace VEEAM_Test_Task
         static void Main(string[] args)
         {
             Logs.TextFileCreator();
-            processChoices();
+            SyncFiles.Timing();
         }
 
-
-
+        //main function who gives options to the user to do what he want
+        #region
         public static void processChoices()
         {
             string name = ClassCreate.pathNameAndArchive;
@@ -56,5 +56,6 @@ namespace VEEAM_Test_Task
 
             }
         }
+        #endregion
     }
 }
